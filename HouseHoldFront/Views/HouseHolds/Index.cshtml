@@ -1,0 +1,57 @@
+﻿@model List<HouseHoldFront.Models.ViewHouseHoldViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>HouseHolds</h2>
+
+<div>
+    @Html.ActionLink("CreateHouseHolds", "Create")
+</div>
+
+<p>HouseHolds List</p>
+
+@if (Model == null)
+{
+    <p>Nothing Created By You</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                Name
+            </tr>
+            <tr>
+                Number of Members
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var household in Model)
+            {
+                <tr>
+                    <td>
+                        @household.Name
+                    </td>
+
+                    <td>
+                        @household.NumberOfUsers
+                    </td>
+                    
+                    <td>
+                        @Html.ActionLink("Edit", "Edit") |
+                        @Html.ActionLink("Members", "ViewMembers") |
+                        @Html.ActionLink("invite", "InviteMembers") |
+                        @Html.ActionLink("Delete", "Leave", new { id = household.Id}) 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+     <div>
+        @Html.ActionLink("Join Members in HouseHolds ", "HouseHoldJoin")
+    </div>
+
+}
+

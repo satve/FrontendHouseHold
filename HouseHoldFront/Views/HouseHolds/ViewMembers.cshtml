@@ -1,0 +1,45 @@
+﻿@model List<HouseHoldFront.Models.HouseHoldMembersViewModel>
+
+@{
+    ViewBag.Title = "ViewMembers";
+}
+
+<h2>ViewMembers</h2>
+
+<p>HouseHolds  Members List</p>
+
+@if (Model == null)
+{
+    <p>Nothing Created By You</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                Name
+            </tr>
+            <tr>
+                Email
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var household in Model)
+            {
+                <tr>
+                    <td>
+                        @household.Name
+                    </td>
+                    <td>
+                        @household.Email
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
+
+
+
